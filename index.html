@@ -1,0 +1,843 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Marcos Aurelio Teixeira Gonzaga — Portfólio</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --gold: #C9A84C;
+    --gold-light: #E8C96A;
+    --gold-pale: #F5E6BB;
+    --dark: #0D0D0D;
+    --dark2: #161410;
+    --dark3: #1E1A14;
+    --mid: #2A2318;
+    --text: #E8DCC8;
+    --text-muted: #9A8B72;
+    --accent: #8B5E2A;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--dark);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    overflow-x: hidden;
+  }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    background: var(--dark2);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    padding: 60px 24px;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    width: 600px; height: 600px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(201,168,76,0.08) 0%, transparent 70%);
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+  }
+
+  .compass {
+    font-size: 48px;
+    margin-bottom: 24px;
+    animation: spin 20s linear infinite;
+    display: inline-block;
+    opacity: 0.7;
+  }
+
+  @keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+
+  .brand {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 13px;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 16px;
+    font-weight: 400;
+  }
+
+  .hero h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.8rem, 7vw, 5.5rem);
+    font-weight: 300;
+    line-height: 1.05;
+    letter-spacing: -0.5px;
+    margin-bottom: 12px;
+    color: var(--text);
+  }
+
+  .hero h1 em {
+    font-style: italic;
+    color: var(--gold-light);
+  }
+
+  .hero-subtitle {
+    font-size: 14px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 40px;
+  }
+
+  .hero-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    margin-bottom: 48px;
+  }
+
+  .tag {
+    border: 1px solid rgba(201,168,76,0.3);
+    color: var(--gold);
+    padding: 6px 16px;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    border-radius: 2px;
+  }
+
+  .divider {
+    width: 60px;
+    height: 1px;
+    background: var(--gold);
+    margin: 0 auto 60px;
+    opacity: 0.5;
+  }
+
+  /* SECTIONS */
+  section {
+    padding: 80px 24px;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .section-label {
+    font-size: 10px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 12px;
+  }
+
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 300;
+    color: var(--text);
+    margin-bottom: 40px;
+    line-height: 1.1;
+  }
+
+  /* SOBRE */
+  .sobre-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: start;
+  }
+
+  @media (max-width: 640px) {
+    .sobre-grid { grid-template-columns: 1fr; }
+  }
+
+  .sobre-text p {
+    color: var(--text-muted);
+    line-height: 1.8;
+    font-size: 15px;
+    margin-bottom: 16px;
+  }
+
+  .sobre-text p strong {
+    color: var(--gold-light);
+    font-weight: 500;
+  }
+
+  .sobre-stats {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .stat-item {
+    border-left: 2px solid var(--gold);
+    padding-left: 20px;
+  }
+
+  .stat-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.5rem;
+    font-weight: 300;
+    color: var(--gold-light);
+    line-height: 1;
+  }
+
+  .stat-label {
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-top: 4px;
+  }
+
+  /* HABILIDADES */
+  .skills-bg {
+    background: var(--dark3);
+    padding: 80px 24px;
+  }
+
+  .skills-inner {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+  }
+
+  .skill-card {
+    background: var(--mid);
+    border: 1px solid rgba(201,168,76,0.15);
+    padding: 28px 24px;
+    border-radius: 2px;
+    transition: border-color 0.3s, transform 0.3s;
+  }
+
+  .skill-card:hover {
+    border-color: rgba(201,168,76,0.5);
+    transform: translateY(-4px);
+  }
+
+  .skill-icon {
+    font-size: 28px;
+    margin-bottom: 14px;
+  }
+
+  .skill-card h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.2rem;
+    font-weight: 400;
+    color: var(--gold-light);
+    margin-bottom: 8px;
+  }
+
+  .skill-card p {
+    font-size: 13px;
+    color: var(--text-muted);
+    line-height: 1.7;
+  }
+
+  /* EXPERIÊNCIA */
+  .timeline {
+    position: relative;
+    padding-left: 32px;
+  }
+
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 8px; bottom: 0;
+    width: 1px;
+    background: linear-gradient(to bottom, var(--gold), transparent);
+    opacity: 0.4;
+  }
+
+  .timeline-item {
+    margin-bottom: 48px;
+    position: relative;
+  }
+
+  .timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -36px; top: 8px;
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: var(--gold);
+    border: 2px solid var(--dark2);
+  }
+
+  .timeline-period {
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 6px;
+  }
+
+  .timeline-company {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.4rem;
+    font-weight: 400;
+    color: var(--text);
+    margin-bottom: 4px;
+  }
+
+  .timeline-role {
+    font-size: 12px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 14px;
+  }
+
+  .timeline-desc {
+    font-size: 14px;
+    color: var(--text-muted);
+    line-height: 1.8;
+  }
+
+  .timeline-desc li {
+    list-style: none;
+    padding-left: 14px;
+    position: relative;
+    margin-bottom: 4px;
+  }
+
+  .timeline-desc li::before {
+    content: '–';
+    position: absolute;
+    left: 0;
+    color: var(--gold);
+    opacity: 0.6;
+  }
+
+  /* PROJETOS */
+  .projects-bg {
+    background: var(--dark3);
+    padding: 80px 24px;
+  }
+
+  .projects-inner {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .project-card {
+    background: var(--mid);
+    border: 1px solid rgba(201,168,76,0.15);
+    padding: 36px 32px;
+    border-radius: 2px;
+    margin-bottom: 24px;
+    display: flex;
+    gap: 32px;
+    align-items: flex-start;
+    transition: border-color 0.3s;
+  }
+
+  .project-card:hover {
+    border-color: rgba(201,168,76,0.4);
+  }
+
+  @media (max-width: 600px) {
+    .project-card { flex-direction: column; gap: 16px; }
+  }
+
+  .project-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 3rem;
+    font-weight: 300;
+    color: rgba(201,168,76,0.2);
+    line-height: 1;
+    flex-shrink: 0;
+  }
+
+  .project-content h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: var(--gold-light);
+    margin-bottom: 8px;
+  }
+
+  .project-content p {
+    font-size: 14px;
+    color: var(--text-muted);
+    line-height: 1.8;
+    margin-bottom: 14px;
+  }
+
+  .project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .ptag {
+    background: rgba(201,168,76,0.1);
+    color: var(--gold);
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: 2px;
+  }
+
+  /* FORMAÇÃO */
+  .edu-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+
+  @media (max-width: 600px) {
+    .edu-grid { grid-template-columns: 1fr; }
+  }
+
+  .edu-card {
+    border: 1px solid rgba(201,168,76,0.2);
+    padding: 28px 24px;
+    border-radius: 2px;
+    background: var(--mid);
+  }
+
+  .edu-card .year {
+    font-size: 11px;
+    letter-spacing: 2px;
+    color: var(--gold);
+    margin-bottom: 8px;
+    text-transform: uppercase;
+  }
+
+  .edu-card h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.2rem;
+    font-weight: 400;
+    color: var(--text);
+    margin-bottom: 4px;
+  }
+
+  .edu-card p {
+    font-size: 13px;
+    color: var(--text-muted);
+  }
+
+  /* IDIOMAS & CERTS */
+  .extras-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    margin-top: 48px;
+  }
+
+  @media (max-width: 600px) {
+    .extras-grid { grid-template-columns: 1fr; }
+  }
+
+  .extra-title {
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 16px;
+  }
+
+  .extra-item {
+    font-size: 14px;
+    color: var(--text-muted);
+    margin-bottom: 8px;
+    padding-left: 14px;
+    position: relative;
+    line-height: 1.6;
+  }
+
+  .extra-item::before {
+    content: '◈';
+    position: absolute;
+    left: 0;
+    color: var(--gold);
+    font-size: 8px;
+    top: 4px;
+  }
+
+  /* CONTATO */
+  .contact-section {
+    text-align: center;
+    padding: 100px 24px;
+    background: var(--dark2);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .contact-section::before {
+    content: '';
+    position: absolute;
+    width: 400px; height: 400px;
+    border-radius: 50%;
+    border: 1px solid rgba(201,168,76,0.1);
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .contact-section::after {
+    content: '';
+    position: absolute;
+    width: 600px; height: 600px;
+    border-radius: 50%;
+    border: 1px solid rgba(201,168,76,0.05);
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .contact-inner {
+    position: relative;
+    z-index: 1;
+  }
+
+  .contact-section h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 300;
+    color: var(--text);
+    margin-bottom: 16px;
+  }
+
+  .contact-section p {
+    color: var(--text-muted);
+    font-size: 15px;
+    margin-bottom: 40px;
+  }
+
+  .contact-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    justify-content: center;
+  }
+
+  .contact-link {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border: 1px solid rgba(201,168,76,0.3);
+    padding: 14px 28px;
+    color: var(--gold-light);
+    text-decoration: none;
+    font-size: 13px;
+    letter-spacing: 1px;
+    border-radius: 2px;
+    transition: background 0.3s, border-color 0.3s;
+  }
+
+  .contact-link:hover {
+    background: rgba(201,168,76,0.1);
+    border-color: var(--gold);
+  }
+
+  /* FOOTER */
+  footer {
+    background: var(--dark);
+    text-align: center;
+    padding: 32px;
+    border-top: 1px solid rgba(201,168,76,0.1);
+  }
+
+  footer p {
+    font-size: 12px;
+    color: var(--text-muted);
+    letter-spacing: 1px;
+  }
+
+  footer span {
+    color: var(--gold);
+  }
+
+  /* SCROLL FADE */
+  .fade-in {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="compass">✦</div>
+  <div class="brand">Olhar Touristta · Portfólio Profissional</div>
+  <h1>Marcos Aurelio<br><em>Teixeira Gonzaga</em></h1>
+  <p class="hero-subtitle">Turismólogo · Analista de Sistemas · Web Designer</p>
+  <div class="hero-tags">
+    <span class="tag">Turismo & Hospitalidade</span>
+    <span class="tag">Tecnologia</span>
+    <span class="tag">Design Gráfico</span>
+    <span class="tag">Recepção</span>
+    <span class="tag">Inglês Intermediário</span>
+  </div>
+  <div class="divider"></div>
+  <p style="font-size:13px; color:var(--text-muted); letter-spacing:1px;">Rio de Janeiro, Brasil</p>
+</div>
+
+<!-- SOBRE -->
+<section class="fade-in">
+  <div class="section-label">Sobre mim</div>
+  <h2 class="section-title">Uma visão rara:<br>turismo com olhar tecnológico</h2>
+  <div class="sobre-grid">
+    <div class="sobre-text">
+      <p>Sou <strong>turismólogo formado</strong> com mais de 20 anos de experiência em hospitalidade, hotelaria e atendimento ao público nos mais icônicos endereços do Rio de Janeiro — incluindo o <strong>Bondinho do Pão de Açúcar</strong>.</p>
+      <p>Paralelamente, curso <strong>Análise e Desenvolvimento de Sistemas</strong>, o que me posiciona de forma única no mercado: profundo conhecimento do setor turístico aliado à visão estratégica da tecnologia.</p>
+      <p>Fundador do canal <strong>Olhar Touristta</strong>, produzo conteúdo sobre turismo, cultura e inovação, conectando experiências humanas com ferramentas digitais modernas.</p>
+    </div>
+    <div class="sobre-stats">
+      <div class="stat-item">
+        <div class="stat-num">20+</div>
+        <div class="stat-label">Anos em hospitalidade</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">5+</div>
+        <div class="stat-label">Hotéis e atrações icônicas</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">2</div>
+        <div class="stat-label">Graduações (Turismo + TI)</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">3</div>
+        <div class="stat-label">Idiomas (PT · EN · ES)</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HABILIDADES -->
+<div class="skills-bg">
+  <div class="skills-inner fade-in">
+    <div class="section-label">Competências</div>
+    <h2 class="section-title">O que posso fazer por você</h2>
+    <div class="skills-grid">
+      <div class="skill-card">
+        <div class="skill-icon">🎨</div>
+        <h3>Design Gráfico</h3>
+        <p>Criação de peças visuais com Canva e ferramentas de IA — posts, banners, identidade visual e materiais promocionais.</p>
+      </div>
+      <div class="skill-card">
+        <div class="skill-icon">🌐</div>
+        <h3>Web Design</h3>
+        <p>Desenvolvimento de páginas e apps web com HTML, CSS e JavaScript. Experiência em interfaces mobile-first e multilíngues.</p>
+      </div>
+      <div class="skill-card">
+        <div class="skill-icon">🗺️</div>
+        <h3>Conteúdo de Turismo</h3>
+        <p>Roteiros, descrições de atrações, conteúdo para guias, apps de turismo e materiais de divulgação de destinos.</p>
+      </div>
+      <div class="skill-card">
+        <div class="skill-icon">📱</div>
+        <h3>YouTube & Redes Sociais</h3>
+        <p>Produção de roteiros, scripts e conteúdo para YouTube, TikTok, Reels e LinkedIn com foco em engajamento.</p>
+      </div>
+      <div class="skill-card">
+        <div class="skill-icon">🤖</div>
+        <h3>IA Aplicada</h3>
+        <p>Uso estratégico de ferramentas de Inteligência Artificial para criação de conteúdo, imagens e automação de tarefas criativas.</p>
+      </div>
+      <div class="skill-card">
+        <div class="skill-icon">🏨</div>
+        <h3>Recepção & Hospitalidade</h3>
+        <p>Atendimento ao cliente, gestão de reservas, check-in/check-out, auditoria noturna e suporte a hóspedes nacionais e estrangeiros.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- EXPERIÊNCIA -->
+<section class="fade-in">
+  <div class="section-label">Trajetória</div>
+  <h2 class="section-title">Experiência profissional</h2>
+  <div class="timeline">
+    <div class="timeline-item">
+      <div class="timeline-period">Out/2011 — Presente</div>
+      <div class="timeline-company">Bondinho Pão de Açúcar (CCAPA)</div>
+      <div class="timeline-role">Recepcionista · Atendimento ao Visitante</div>
+      <ul class="timeline-desc">
+        <li>Controle de entrada e saída de visitantes nacionais e internacionais</li>
+        <li>Atendimento e encaminhamento de visitantes, prestação de informações turísticas</li>
+        <li>Emissão de relatórios e planilhas de controle de acessos ao parque</li>
+        <li>Suporte a diretoria, agendamento de reuniões e gestão de correspondências</li>
+      </ul>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-period">Mar/2010 — Jul/2010</div>
+      <div class="timeline-company">Windsor Plaza Hotel</div>
+      <div class="timeline-role">Auditor Noturno & Recepcionista</div>
+      <ul class="timeline-desc">
+        <li>Verificação de todos os lançamentos em PDV: diárias, taxas, restaurante, bar e lavanderia</li>
+        <li>Conferência de comandas, estornos e justificativas de divergências</li>
+        <li>Atendimento completo a hóspedes: check-in, check-out, reservas e cancelamentos</li>
+        <li>Informações turísticas e suporte a clientes internacionais</li>
+      </ul>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-period">Set/2006 — Abr/2009</div>
+      <div class="timeline-company">Apart Hotel Vila Dell Sol</div>
+      <div class="timeline-role">Recepcionista</div>
+      <ul class="timeline-desc">
+        <li>Gestão completa de recepção: reservas, check-in/out, controle de caixa</li>
+        <li>Atendimento bilíngue, correspondências e relatórios diários</li>
+      </ul>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-period">Nov/2003 — Set/2006</div>
+      <div class="timeline-company">Apart Hotel Monsieur Le Blond</div>
+      <div class="timeline-role">Recepcionista</div>
+      <ul class="timeline-desc">
+        <li>Rotinas completas de recepção hoteleira e atendimento a hóspedes</li>
+        <li>Controle de caixa, preenchimento de formulários e planilhas internas</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- PROJETOS -->
+<div class="projects-bg">
+  <div class="projects-inner fade-in">
+    <div class="section-label">Projetos em Destaque</div>
+    <h2 class="section-title">O que já construí</h2>
+
+    <div class="project-card">
+      <div class="project-num">01</div>
+      <div class="project-content">
+        <h3>Olhar Touristta — O Rio Que Ninguém Te Contou</h3>
+        <p>App mobile web com GPS, conteúdo imersivo e narração em áudio para 5 pontos icônicos do Rio de Janeiro: Pedra da Gávea, Cristo Redentor, Arpoador, Santa Teresa e Pão de Açúcar. Interface trilíngue (PT/EN/ES) com integração ao Google Maps e estética dark gold luxury.</p>
+        <div class="project-tags">
+          <span class="ptag">HTML/CSS/JS</span>
+          <span class="ptag">GPS Geolocation</span>
+          <span class="ptag">Multilíngue</span>
+          <span class="ptag">Turismo Digital</span>
+          <span class="ptag">Mobile Web</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-num">02</div>
+      <div class="project-content">
+        <h3>Conteúdo Viral — Olhar Touristta (LinkedIn/YouTube/TikTok)</h3>
+        <p>Campanha de conteúdo sobre o debate do investimento em turismo, educação e tecnologia no Brasil. Artigo no LinkedIn com engajamento internacional, roteiro para YouTube de 3–5 min e script para TikTok/Reels de 60 segundos com cenas e imagens geradas por IA.</p>
+        <div class="project-tags">
+          <span class="ptag">LinkedIn</span>
+          <span class="ptag">YouTube</span>
+          <span class="ptag">TikTok/Reels</span>
+          <span class="ptag">Copywriting</span>
+          <span class="ptag">IA Generativa</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-num">03</div>
+      <div class="project-content">
+        <h3>Peças Gráficas — Design com Canva & IA</h3>
+        <p>Criação de materiais visuais para redes sociais, campanhas promocionais e identidade visual de marca. Experiência com Canva, Midjourney, Leonardo AI e Stable Diffusion para geração e aprimoramento de imagens cinematográficas ultrarrealistas.</p>
+        <div class="project-tags">
+          <span class="ptag">Canva</span>
+          <span class="ptag">Midjourney</span>
+          <span class="ptag">Leonardo AI</span>
+          <span class="ptag">Design Gráfico</span>
+          <span class="ptag">Identidade Visual</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FORMAÇÃO -->
+<section class="fade-in">
+  <div class="section-label">Educação</div>
+  <h2 class="section-title">Formação acadêmica</h2>
+  <div class="edu-grid">
+    <div class="edu-card">
+      <div class="year">Concluído em 2007</div>
+      <h3>Bacharel em Turismo</h3>
+      <p>Centro Universitário Augusto Motta</p>
+    </div>
+    <div class="edu-card">
+      <div class="year">Em andamento</div>
+      <h3>Análise e Desenvolvimento de Sistemas</h3>
+      <p>Estácio — 3° período completo</p>
+    </div>
+  </div>
+  <div class="extras-grid">
+    <div>
+      <div class="extra-title">Idiomas</div>
+      <div class="extra-item">Português — Nativo</div>
+      <div class="extra-item">Inglês — Intermediário (Cultura Inglesa)</div>
+      <div class="extra-item">Espanhol — Básico/Comunicativo</div>
+    </div>
+    <div>
+      <div class="extra-title">Cursos & Certificações</div>
+      <div class="extra-item">Sistema de Reservas Amadeus — Estácio (72h)</div>
+      <div class="extra-item">Marketing Pessoal — Estácio (48h)</div>
+      <div class="extra-item">Montagem e Config. de Computadores — SENAI (120h)</div>
+      <div class="extra-item">Curso de Recepcionista — PROTEL (24h)</div>
+      <div class="extra-item">Técnico em IRLA — IRLA Cursos (36h)</div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTATO -->
+<div class="contact-section">
+  <div class="contact-inner fade-in">
+    <div class="section-label" style="margin-bottom:16px;">Vamos conversar</div>
+    <h2>Pronto para<br><em style="font-family:'Cormorant Garamond',serif; font-style:italic; color:var(--gold-light);">colaborar?</em></h2>
+    <p>Turismo, design, tecnologia ou hospitalidade — estou disponível para projetos freelance.</p>
+    <div class="contact-links">
+      <a class="contact-link" href="mailto:marcosagonzaga44@gmail.com">
+        ✉ marcosagonzaga44@gmail.com
+      </a>
+      <a class="contact-link" href="https://www.workana.com/freelancer/aca23451be575e4602a3e21ed59921c8" target="_blank">
+        🔗 Perfil Workana
+      </a>
+      <a class="contact-link" href="tel:+5521998320651">
+        📞 (21) 9 9832-0651
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2026 <span>Marcos Aurelio Teixeira Gonzaga</span> · Olhar Touristta · Rio de Janeiro, Brasil</p>
+</footer>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
